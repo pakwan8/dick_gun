@@ -1,6 +1,5 @@
 import tensorflow as tf
 import numpy as np
-from matplotlib import pyplot as plt
 import cv2
 
 
@@ -27,7 +26,7 @@ def locate_penis(frame, keypoints, confidence_threshold):
     if left_knee_conf > confidence_threshold and right_knee_conf > confidence_threshold and left_hip_conf > confidence_threshold and right_hip_conf > confidence_threshold:
         x = int((left_hip_x + right_hip_x) / 2)
         y = int((left_hip_y + left_knee_y) / 2 - 20)
-        cv2.circle(frame, [x, y], 5, [255, 0, 0], -1)
+        cv2.circle(frame, [x, y], 5, [0, 255, 0], -1)
 
     return [x, y]
 
